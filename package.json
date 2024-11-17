@@ -4,7 +4,9 @@
   "main": "backend.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node pupp.mjs",
+    "postinstall": "puppeteer install"
   },
   "author": "",
   "license": "ISC",
