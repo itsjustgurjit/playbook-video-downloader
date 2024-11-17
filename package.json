@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node pupp.mjs",
-    "postinstall": "puppeteer install"
+    "postinstall": "npx puppeteer browsers install chrome"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +15,7 @@
     "express": "^4.21.1",
     "jsdom": "^25.0.1",
     "node-fetch": "^3.3.2",
-    "puppeteer": "^23.8.0"
+    "puppeteer": "^23.8.0",
+    "puppeteer-core": "^23.8.0"
   }
 }
