@@ -1,0 +1,15 @@
+{
+  "name": "playbook-video-downloader",
+  "version": "1.0.0",
+  "description": "fetches video link from playbook website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "puppeteer": "^23.8.0"
+  }
+}
