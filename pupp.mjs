@@ -2,7 +2,7 @@ import express from 'express';
 import puppeteer from 'puppeteer';
 
 const app = express();
-const port = process.env.PORT || 3000
+const Port = process.env.PORT || 3000
 
 app.get('/fetch-html', async (req, res) => {
     const url = req.query.url;
