@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.mjs",
-    "postinstall": "puppeteer install"
-  },
+    "postinstall": "npx puppeteer install"
+},
   "author": "",
   "license": "ISC",
   "dependencies": {
