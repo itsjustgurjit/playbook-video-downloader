@@ -13,9 +13,12 @@ app.get('/fetch-html', async (req, res) => {
     }
 
     try {
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({
+            headless: true,
+            args: ['--no-sandbox', '--disable-setuid-sandbox']
+        });
         const page = await browser.newPage();
-        await page.goto(url, { waitUntil: 'networkidle2' });
+        await page.goto(url, { waitUntil: 'networkidle2', timeout: 60000 }); // 60 seconds
 
         // Extract the src from the mux-player element
         const videoSrc = await page.evaluate(() => {
@@ -32,8 +35,8 @@ app.get('/fetch-html', async (req, res) => {
         // Redirect to the video file
         res.redirect(videoSrc);
     } catch (error) {
-        console.error('Error:', error);
-        res.status(500).json({ error: 'Failed to fetch the page content.' });
+        console.error('Error:', error.message); // Log the error message
+        res.status(500).json({ error: 'Failed to fetch the page content.', details: error.message });
     }
 });
 
