@@ -4,11 +4,9 @@
   "description": "fetches video link from playbook website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.mjs",
+    "postinstall": "puppeteer install"
   },
-  "scripts": {
-    "start": "node server.mjs"
-},
   "author": "",
   "license": "ISC",
   "dependencies": {

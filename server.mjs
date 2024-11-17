@@ -2,18 +2,21 @@ import express from 'express';
 import puppeteer from 'puppeteer';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 
 app.get('/fetch-html', async (req, res) => {
     const url = req.query.url;
 
     if (!url) {
-        // format url : http://localhost:3000/fetch-html?url=https://www.playbook.com/s/gurjit/personal?assetToken=TBnnfycsnH6j8wTXbg4XoEK1
+        // Format URL: http://localhost:3000/fetch-html?url=https://www.playbook.com/s/gurjit/personal?assetToken=TBnnfycsnH6j8wTXbg4XoEK1
         return res.status(400).json({ error: 'Please provide a valid URL as a query parameter' });
     }
 
     try {
-        const browser = await puppeteer.launch();
+        // Launch Puppeteer with the correct executable path for Chrome
+        const browser = await puppeteer.launch({
+            executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || '/usr/bin/google-chrome', // Adjust the path based on your deployment
+        });
         const page = await browser.newPage();
         await page.goto(url, { waitUntil: 'networkidle2' });
 
